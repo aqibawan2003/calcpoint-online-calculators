@@ -46,14 +46,6 @@ export function Footer() {
               <p className="font-display font-bold text-[var(--text)]">Calculators</p>
             </div>
             <ul className="grid grid-cols-2 gap-x-3 text-sm text-[var(--muted)]">
-              <li>
-                <Link
-                  href="/"
-                  className="flex min-h-9 items-center gap-1.5 hover:text-[var(--accent-text)] transition-colors"
-                >
-                  Standard
-                </Link>
-              </li>
               {tools.map((t) => (
                 <li key={t.slug}>
                   <Link

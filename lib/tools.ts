@@ -8,6 +8,13 @@ export interface ToolInfo {
 
 export const tools: ToolInfo[] = [
   {
+    slug: "standard-calculator",
+    path: "/standard-calculator",
+    name: "Standard Calculator",
+    short: "Everyday arithmetic with memory, history and keyboard support.",
+    related: ["scientific-calculator", "percentage-calculator", "unit-converter", "loan-emi-calculator"],
+  },
+  {
     slug: "scientific-calculator",
     path: "/scientific-calculator",
     name: "Scientific Calculator",
