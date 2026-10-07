@@ -12,7 +12,7 @@ export const metadata = buildMetadata({
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6">
+    <div className="mx-auto max-w-6xl px-4 py-8">
       <Calculator />
       <AdSlot placement="below" className="mt-6" />
       <JsonLd data={[...websiteSchemas(), webApplicationSchema({ name: "Online Calculator", path: "/", description: homeContent.description })]} />

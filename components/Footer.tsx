@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
 import { CookieSettingsButton } from "./ads/CookieSettingsButton";
 import { siteConfig } from "@/lib/siteConfig";
 import { legalPages, tools } from "@/lib/tools";
@@ -11,28 +10,17 @@ export function Footer() {
       <div className="h-1 bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500" />
 
       {/* Brand strip */}
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-950 dark:to-slate-900 px-4 py-10">
-        <div className="mx-auto max-w-6xl flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white font-display text-xl font-bold select-none">
-                C
-              </span>
-              <span className="font-display text-xl font-bold text-white">{siteConfig.name}</span>
-            </div>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-slate-300">
-              {siteConfig.tagline}. Every calculation runs entirely in your browser — nothing is ever sent to a server.
-            </p>
+      <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-950 dark:to-slate-900 px-4 py-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white font-display text-xl font-bold select-none">
+              C
+            </span>
+            <span className="font-display text-xl font-bold text-white">{siteConfig.name}</span>
           </div>
-          <a
-            href={siteConfig.author.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 self-start rounded-xl border border-slate-700 bg-slate-800 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:bg-slate-700 hover:border-slate-600 transition-colors"
-          >
-            <ExternalLink className="h-4 w-4" />
-            Portfolio
-          </a>
+          <p className="mt-3 max-w-sm text-sm leading-6 text-slate-300">
+            {siteConfig.tagline}. Every calculation runs entirely in your browser — nothing is ever sent to a server.
+          </p>
         </div>
       </div>
 
