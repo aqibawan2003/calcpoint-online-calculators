@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* Dark mode is controlled by a "dark" class on <html> (set before first paint). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f8;
+  --border: #d9e0ec;
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #2563eb;
+  --accent-text: #1d4ed8;
+
+  --key-digit-bg: #ffffff;
+  --key-digit-fg: #0f172a;
+  --key-op-bg: #2563eb;
+  --key-op-bg-hover: #1d4ed8;
+  --key-op-fg: #ffffff;
+  --key-eq-bg: #047857;
+  --key-eq-bg-hover: #065f46;
+  --key-eq-fg: #ffffff;
+  --key-clear-bg: #e11d48;
+  --key-clear-bg-hover: #be123c;
+  --key-clear-fg: #ffffff;
+  --key-sci-bg: #e0e7ff;
+  --key-sci-bg-hover: #c7d2fe;
+  --key-sci-fg: #312e81;
+  --key-mem-bg: #fef3c7;
+  --key-mem-bg-hover: #fde68a;
+  --key-mem-fg: #78350f;
+  --key-aux-bg: #d3ddf0;
+  --key-aux-bg-hover: #c0cde6;
+  --key-aux-fg: #1e293b;
+  --key-border: #cbd5e1;
+}
+
+.dark {
+  --bg: #0b1120;
+  --surface: #131c31;
+  --surface-2: #1b263e;
+  --border: #2a3753;
+  --text: #f1f5f9;
+  --muted: #a8b3c7;
+  --accent: #60a5fa;
+  --accent-text: #93c5fd;
+
+  --key-digit-bg: #334155;
+  --key-digit-fg: #f8fafc;
+  --key-op-bg: #1d4ed8;
+  --key-op-bg-hover: #2563eb;
+  --key-op-fg: #ffffff;
+  --key-eq-bg: #047857;
+  --key-eq-bg-hover: #059669;
+  --key-eq-fg: #ffffff;
+  --key-clear-bg: #be123c;
+  --key-clear-bg-hover: #e11d48;
+  --key-clear-fg: #ffffff;
+  --key-sci-bg: #312e81;
+  --key-sci-bg-hover: #3f3a9a;
+  --key-sci-fg: #e0e7ff;
+  --key-mem-bg: #78350f;
+  --key-mem-bg-hover: #92400e;
+  --key-mem-fg: #fffbeb;
+  --key-aux-bg: #3b4a66;
+  --key-aux-bg-hover: #475879;
+  --key-aux-fg: #f1f5f9;
+  --key-border: #475569;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Keyboard focus ring for every interactive element */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+button:not(:disabled),
+a,
+select,
+summary,
+[role="tab"],
+label[for] {
+  cursor: pointer;
+}
+
+/* Calculator keys */
+.key {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-display);
+  font-weight: 600;
+  border-radius: 14px;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  font-size: 1.25rem;
+}
+.key-main {
+  min-height: 60px;
+  font-size: 1.5rem;
+}
+.key-small {
+  font-size: 1rem;
+}
+.key-digit { background: var(--key-digit-bg); color: var(--key-digit-fg); border: 1px solid var(--key-border); }
+.key-digit:hover { background: var(--surface-2); }
+.key-op { background: var(--key-op-bg); color: var(--key-op-fg); }
+.key-op:hover { background: var(--key-op-bg-hover); }
+.key-eq { background: var(--key-eq-bg); color: var(--key-eq-fg); }
+.key-eq:hover { background: var(--key-eq-bg-hover); }
+.key-clear { background: var(--key-clear-bg); color: var(--key-clear-fg); }
+.key-clear:hover { background: var(--key-clear-bg-hover); }
+.key-sci { background: var(--key-sci-bg); color: var(--key-sci-fg); }
+.key-sci:hover { background: var(--key-sci-bg-hover); }
+.key-mem { background: var(--key-mem-bg); color: var(--key-mem-fg); }
+.key-mem:hover { background: var(--key-mem-bg-hover); }
+.key-aux { background: var(--key-aux-bg); color: var(--key-aux-fg); }
+.key-aux:hover { background: var(--key-aux-bg-hover); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.05), 0 8px 24px -12px rgb(15 23 42 / 0.18);
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+}
+.input[aria-invalid="true"] {
+  border-color: #e11d48;
+}
+
+.prose-calc h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+.prose-calc h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+.prose-calc p {
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1rem;
+  max-width: 70ch;
+}
+.prose-calc ul,
+.prose-calc ol {
+  margin: 0 0 1rem 1.25rem;
+  line-height: 1.75;
+  max-width: 70ch;
+}
+.prose-calc ul { list-style: disc; }
+.prose-calc ol { list-style: decimal; }
+.prose-calc li { margin-bottom: 0.4rem; }
+.prose-calc a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
