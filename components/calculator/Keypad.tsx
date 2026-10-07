@@ -11,7 +11,7 @@ interface KeypadProps {
 export function Keypad({ onKey }: KeypadProps) {
   const digit = (d: string) => <KeyButton key={d} variant="digit" main label={d} ariaLabel={d} onPress={() => onKey(d)} />;
   return (
-    <div className="grid grid-cols-4 gap-2" role="group" aria-label="Calculator keypad">
+    <div className="grid grid-cols-4 gap-1.5" role="group" aria-label="Calculator keypad">
       <KeyButton variant="clear" main label="AC" ariaLabel="All clear" onPress={() => onKey("AC")} />
       <KeyButton variant="clear" main label="C" ariaLabel="Clear" onPress={() => onKey("C")} />
       <KeyButton variant="clear" main label={<Delete className="h-6 w-6" aria-hidden="true" />} ariaLabel="Backspace" onPress={() => onKey("back")} />
@@ -35,7 +35,7 @@ export function Keypad({ onKey }: KeypadProps) {
       {digit("1")}
       {digit("2")}
       {digit("3")}
-      <KeyButton variant="eq" main label="=" ariaLabel="Equals" className="row-span-2 !min-h-[128px] !text-3xl" onPress={() => onKey("=")} />
+      <KeyButton variant="eq" main label="=" ariaLabel="Equals" className="row-span-2" onPress={() => onKey("=")} />
 
       <KeyButton variant="aux" main label="+/−" ariaLabel="Toggle sign" onPress={() => onKey("neg")} />
       {digit("0")}

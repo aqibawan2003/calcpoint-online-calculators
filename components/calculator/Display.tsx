@@ -33,12 +33,12 @@ export function Display({ state, copied, onCopy }: DisplayProps) {
   }
 
   const isError = Boolean(state.error);
-  const size = main.length > 18 ? "text-2xl" : main.length > 12 ? "text-3xl" : main.length > 8 ? "text-4xl" : "text-5xl";
+  const size = main.length > 18 ? "text-lg" : main.length > 12 ? "text-xl" : main.length > 8 ? "text-2xl" : "text-3xl";
   const canCopy = !isError && currentValue(state) !== null;
 
   return (
-    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-4">
-      <div className="flex min-h-6 items-center justify-between gap-2">
+    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface-2)] p-3">
+      <div className="flex min-h-5 items-center justify-between gap-2">
         <span className="flex gap-2 text-xs font-semibold text-[var(--muted)]" aria-hidden="true">
           <span className="rounded-md border border-[var(--border)] px-1.5 py-0.5">{state.angle === "deg" ? "DEG" : "RAD"}</span>
           {state.memory !== null && <span className="rounded-md border border-amber-600 px-1.5 py-0.5 text-amber-800 dark:text-amber-300">M</span>}
@@ -54,13 +54,13 @@ export function Display({ state, copied, onCopy }: DisplayProps) {
           {copied ? "Copied" : "Copy"}
         </button>
       </div>
-      <div className="mt-1 h-7 overflow-x-auto whitespace-nowrap text-right font-display text-lg text-[var(--muted)]" aria-label="Expression" tabIndex={0}>
+      <div className="mt-1 h-5 overflow-x-auto whitespace-nowrap text-right font-display text-sm text-[var(--muted)]" aria-label="Expression" tabIndex={0}>
         {top}
       </div>
       <div
         aria-live="polite"
         aria-atomic="true"
-        className={`mt-1 h-16 overflow-x-auto whitespace-nowrap text-right font-display font-bold leading-[4rem] tabular-nums ${size} ${
+        className={`mt-1 h-10 overflow-x-auto whitespace-nowrap text-right font-display font-bold leading-10 tabular-nums ${size} ${
           isError ? "text-rose-700 dark:text-rose-300 !text-xl" : preview ? "text-[var(--text)]" : "text-[var(--text)]"
         }`}
         tabIndex={0}

@@ -113,20 +113,20 @@ label[for] {
   -webkit-tap-highlight-color: transparent;
   font-family: var(--font-display);
   font-weight: 600;
-  border-radius: 14px;
+  border-radius: 12px;
   transition: background-color 120ms ease, box-shadow 120ms ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 56px;
-  font-size: 1.25rem;
+  min-height: 40px;
+  font-size: 1rem;
 }
 .key-main {
-  min-height: 60px;
-  font-size: 1.5rem;
+  min-height: 44px;
+  font-size: 1.25rem;
 }
 .key-small {
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 .key-digit { background: var(--key-digit-bg); color: var(--key-digit-fg); border: 1px solid var(--key-border); }
 .key-digit:hover { background: var(--surface-2); }

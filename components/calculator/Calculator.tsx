@@ -111,7 +111,7 @@ export function Calculator({ defaultScientific = false }: CalculatorProps) {
       <section aria-label="Calculator" className="card p-4 sm:p-5">
         <Display state={state} copied={copied} onCopy={copyResult} />
 
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
             onClick={() => setScientific((v) => !v)}
@@ -172,12 +172,12 @@ export function Calculator({ defaultScientific = false }: CalculatorProps) {
         )}
 
         {scientific && (
-          <div id="scientific-panel" className="mt-3">
+          <div id="scientific-panel" className="mt-2">
             <ScientificPanel angle={state.angle} onKey={onKey} />
           </div>
         )}
 
-        <div className="mt-3 grid grid-cols-5 gap-2" role="group" aria-label="Memory">
+        <div className="mt-2 grid grid-cols-5 gap-1.5" role="group" aria-label="Memory">
           <KeyButton variant="mem" className="key-small" label="MC" ariaLabel="Memory clear" onPress={() => onKey("MC")} />
           <KeyButton variant="mem" className="key-small" label="MR" ariaLabel="Memory recall" onPress={() => onKey("MR")} />
           <KeyButton variant="mem" className="key-small" label="M+" ariaLabel="Memory add" onPress={() => onKey("M+")} />
@@ -188,7 +188,7 @@ export function Calculator({ defaultScientific = false }: CalculatorProps) {
           {state.memory !== null ? `Memory holds ${formatNumber(state.memory)}` : "Memory is empty"}
         </p>
 
-        <div className="mt-3">
+        <div className="mt-2">
           <Keypad onKey={onKey} />
         </div>
       </section>

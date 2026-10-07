@@ -14,7 +14,7 @@ export function ScientificPanel({ angle, onKey }: Props) {
     <KeyButton key={key} variant="sci" className="key-small" label={label} ariaLabel={aria} onPress={() => onKey(key)} />
   );
   return (
-    <div className="grid grid-cols-5 gap-2" role="group" aria-label="Scientific functions">
+    <div className="grid grid-cols-5 gap-1.5" role="group" aria-label="Scientific functions">
       <KeyButton
         variant="sci"
         className="key-small"
