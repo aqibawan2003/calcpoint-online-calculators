@@ -5,40 +5,34 @@ import { legalPages, tools } from "@/lib/tools";
 
 export function Footer() {
   return (
-    <footer className="mt-16">
-      {/* Rainbow accent line */}
-      <div className="h-1 bg-gradient-to-r from-blue-500 via-violet-500 to-emerald-500" />
-
-      {/* Brand strip */}
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-950 dark:to-slate-900 px-4 py-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white font-display text-xl font-bold select-none">
-              C
-            </span>
-            <span className="font-display text-xl font-bold text-white">{siteConfig.name}</span>
-          </div>
-          <p className="mt-3 max-w-sm text-sm leading-6 text-slate-300">
-            {siteConfig.tagline}. Every calculation runs entirely in your browser — nothing is ever sent to a server.
-          </p>
-        </div>
-      </div>
-
-      {/* Links section */}
-      <div className="bg-[var(--surface)] border-t border-[var(--border)]">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Calculators */}
-          <nav aria-label="Calculators">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="h-5 w-1 rounded-full bg-blue-500" />
-              <p className="font-display font-bold text-[var(--text)]">Calculators</p>
+    <footer className="mt-16 border-t border-[var(--border)] bg-white dark:bg-slate-950">
+      {/* Main Footer Content */}
+      <div className="mx-auto max-w-6xl px-4 py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand Column */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-display text-xl font-bold select-none shadow-lg">
+                C
+              </span>
+              <span className="font-display text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                {siteConfig.name}
+              </span>
             </div>
-            <ul className="grid grid-cols-2 gap-x-3 text-sm text-[var(--muted)]">
-              {tools.map((t) => (
+            <p className="text-sm leading-6 text-[var(--muted)] max-w-xs">
+              {siteConfig.tagline}. Every calculation runs entirely in your browser — nothing is ever sent to a server.
+            </p>
+          </div>
+
+          {/* Calculators Column */}
+          <nav aria-label="Calculators">
+            <h4 className="font-display font-semibold text-[var(--text)] mb-4">Calculators</h4>
+            <ul className="space-y-2 text-sm text-[var(--muted)]">
+              {tools.slice(0, 6).map((t) => (
                 <li key={t.slug}>
                   <Link
                     href={t.path}
-                    className="flex min-h-9 items-center gap-1.5 hover:text-[var(--accent-text)] transition-colors"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {t.name.replace(" Calculator", "").replace(" Converter", "")}
                   </Link>
@@ -47,36 +41,46 @@ export function Footer() {
             </ul>
           </nav>
 
-          {/* Resources */}
+          {/* Resources Column */}
           <nav aria-label="Resources">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="h-5 w-1 rounded-full bg-violet-500" />
-              <p className="font-display font-bold text-[var(--text)]">Resources</p>
-            </div>
-            <ul className="text-sm text-[var(--muted)]">
+            <h4 className="font-display font-semibold text-[var(--text)] mb-4">Resources</h4>
+            <ul className="space-y-2 text-sm text-[var(--muted)]">
               <li>
                 <Link
                   href="/guides"
-                  className="flex min-h-9 items-center hover:text-[var(--accent-text)] transition-colors"
+                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   Guides
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  Contact
                 </Link>
               </li>
             </ul>
           </nav>
 
-          {/* Legal */}
+          {/* Legal Column */}
           <nav aria-label="Legal">
-            <div className="flex items-center gap-2.5 mb-4">
-              <span className="h-5 w-1 rounded-full bg-emerald-500" />
-              <p className="font-display font-bold text-[var(--text)]">Legal</p>
-            </div>
-            <ul className="text-sm text-[var(--muted)]">
+            <h4 className="font-display font-semibold text-[var(--text)] mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm text-[var(--muted)]">
               {legalPages.map((p) => (
                 <li key={p.path}>
                   <Link
                     href={p.path}
-                    className="flex min-h-9 items-center hover:text-[var(--accent-text)] transition-colors"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {p.name}
                   </Link>
@@ -88,28 +92,28 @@ export function Footer() {
             </ul>
           </nav>
         </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-[var(--border)] bg-[var(--surface-2)]">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 text-xs text-[var(--muted)]">
-            <span>
-              &copy; {new Date().getFullYear()}{" "}
-              <span className="font-semibold text-[var(--text)]">{siteConfig.name}</span>. Results are for general use only.
-            </span>
-            <span>
-              Made with{" "}
-              <span className="text-rose-500" aria-hidden="true">&#9829;</span>{" "}
-              by{" "}
-              <a
-                href={siteConfig.author.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-[var(--accent-text)] underline underline-offset-2 hover:opacity-80 transition-opacity"
-              >
-                {siteConfig.author.name}
-              </a>
-            </span>
-          </div>
+      {/* Bottom Bar */}
+      <div className="border-t border-[var(--border)] bg-[var(--surface-2)]">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-[var(--muted)] md:flex-row">
+          <p>
+            &copy; {new Date().getFullYear()}{" "}
+            <span className="font-semibold text-[var(--text)]">{siteConfig.name}</span>. All rights reserved.
+          </p>
+          <p>
+            Made with{" "}
+            <span className="text-rose-500" aria-hidden="true">&#9829;</span>{" "}
+            by{" "}
+            <a
+              href={siteConfig.author.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-blue-600 dark:text-blue-400 hover:underline transition-colors"
+            >
+              {siteConfig.author.name}
+            </a>
+          </p>
         </div>
       </div>
     </footer>
